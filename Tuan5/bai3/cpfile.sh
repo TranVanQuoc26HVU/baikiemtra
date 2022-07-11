@@ -23,15 +23,12 @@ function coppy(){
 		echo "File $1 khong ton tai"
 	fi
 }
-echo -e -n "\nNhap thu muc dich: "
+echo -n "Nhap vao thu muc dich: "
 read thumuc
 kt_thumuc $thumuc
-echo -e -n "\nNhap so luong file can copy: "
-read n
 count=0
-for(( i=1; i<=$n; i++ )) {
-	echo -e -n "Nhap file thu $i: "
-	read file
-	coppy $file $thumuc
-}
-echo "Ban da coppy $n file vao thu muc $thumuc"
+for file in $@
+	do
+		coppy $file $thumuc
+done
+echo "Ban da coppy $count file vao thu muc $thumuc"
